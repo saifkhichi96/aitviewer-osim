@@ -441,7 +441,7 @@ class OSIMSequence(Node):
 
             # Since python 3.6, dicts have a fixed order so the order of this list should be marching labels
             markers[frame_id, :, :] = np.vstack(
-                self.osim.skeleton.getMarkerMapWorldPositions(self.osim.markersMap).values()
+                list(self.osim.skeleton.getMarkerMapWorldPositions(self.osim.markersMap).values())
             )
             # Sanity check for previous comment
             assert (
