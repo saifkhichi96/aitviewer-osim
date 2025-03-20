@@ -403,7 +403,7 @@ class OSIMSequence(Node):
 
             if fps_out is not None:
                 assert fps_in % fps_out == 0, "fps_out must be a interger divisor of fps_in"
-                mask = np.arange(0, motion.shape[0], fps_in // fps_out)
+                mask = np.arange(0, motion.shape[0], fps_in // fps_out, dtype=int)
                 print(f"Resampling from {fps_in} to {fps_out} fps. Keeping every {fps_in//fps_out}th frame")
                 # motion = resample_positions(motion, fps_in, fps_out) #TODO: restore this
                 motion = motion[mask]
